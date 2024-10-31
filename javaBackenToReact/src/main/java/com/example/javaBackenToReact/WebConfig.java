@@ -13,7 +13,7 @@ public class WebConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("https://zindriana.github.io/react_frontend_to_java/");
+                registry.addMapping("/**").allowedOrigins("https://zindriana.github.io/react_frontend_to_java");
             }
         };
     }
