@@ -1,10 +1,11 @@
 package com.example.javaBackenToReact;
 
 import com.example.javaBackenToReact.models.Character;
-
+import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CharacterList {
 
     private List<Character> characters = new ArrayList<>();

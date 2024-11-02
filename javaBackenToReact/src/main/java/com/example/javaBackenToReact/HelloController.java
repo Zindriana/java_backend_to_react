@@ -1,13 +1,19 @@
 package com.example.javaBackenToReact;
 import com.example.javaBackenToReact.models.Character;
 import com.example.javaBackenToReact.models.Randomizer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class HelloController {
-    CharacterList characterList = new CharacterList();
+    private final CharacterList characterList;
+
+    @Autowired
+    public HelloController(CharacterList characterList) {
+        this.characterList = characterList;
+    }
 
     @CrossOrigin(origins = "http://localhost:5173/")
     @GetMapping("/hello")
