@@ -3,6 +3,8 @@ import com.example.javaBackenToReact.models.Character;
 import com.example.javaBackenToReact.models.Randomizer;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class HelloController {
     CharacterList characterList = new CharacterList();
@@ -23,5 +25,10 @@ public class HelloController {
     public void newCharacter(@RequestBody Character character) {
         characterList.addCharacter(character);
         System.out.println("New character added: " + character);
+    }
+
+    @GetMapping("/getcharacters")
+    public List<Character> getCharacters() {
+        return characterList.getCharacters();
     }
 }
