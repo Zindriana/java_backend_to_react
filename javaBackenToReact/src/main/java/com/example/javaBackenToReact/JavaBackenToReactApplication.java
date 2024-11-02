@@ -23,6 +23,6 @@ public class JavaBackenToReactApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		dataLoader.loadCharactersFromJson("save.json");
+		//dataLoader.loadHeroesFromTxt("herosave");
 	}
 }

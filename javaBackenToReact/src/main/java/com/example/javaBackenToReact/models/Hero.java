@@ -1,6 +1,6 @@
 package com.example.javaBackenToReact.models;
 
-public class Character {
+public class Hero {
 
     private String name;
     private int mental;
@@ -8,12 +8,16 @@ public class Character {
     private int social;
     private int spirit;
 
-    public Character(String name, int mental, int physical, int social, int spirit) {
+    public Hero(String name, int mental, int physical, int social, int spirit) {
         this.name = name;
         this.mental = mental;
         this.physical = physical;
         this.spirit = spirit;
         this.social = social;
+    }
+
+    public static Hero fromString(String line) {
+        return null;
     }
 
     public String getName() {
@@ -54,5 +58,16 @@ public class Character {
 
     public void setSpirit(int spirit) {
         this.spirit = spirit;
+    }
+
+    @Override
+    public String toString() {
+        return "Hero{" +
+                "name='" + name + '\'' +
+                ", mental=" + mental +
+                ", physical=" + physical +
+                ", social=" + social +
+                ", spirit=" + spirit +
+                '}';
     }
 }
