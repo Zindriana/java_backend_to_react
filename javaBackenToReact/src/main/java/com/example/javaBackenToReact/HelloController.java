@@ -11,4 +11,9 @@ public class HelloController {
     public String sayHello() {
         return "Hello, World!";
     }
+
+    @GetMapping("/rolldie")
+    public int dieRoll() {
+        int value = 3; //ska ändras till slumptal senare
+        return value; }
 }
