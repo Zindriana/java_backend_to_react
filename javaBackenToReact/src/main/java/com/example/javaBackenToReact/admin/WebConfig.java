@@ -1,4 +1,4 @@
-package com.example.javaBackenToReact;
+package com.example.javaBackenToReact.admin;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.example.javaBackenToReact;
+package com.example.javaBackenToReact.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

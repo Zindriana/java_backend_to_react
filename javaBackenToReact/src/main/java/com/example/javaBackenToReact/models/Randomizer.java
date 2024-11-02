@@ -1,4 +1,4 @@
-package com.example.javaBackenToReact;
+package com.example.javaBackenToReact.models;
 import java.util.Random;
 
 public class Randomizer {
