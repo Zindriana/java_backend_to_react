@@ -5,7 +5,7 @@ import com.example.javaBackenToReact.models.Character;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lists {
+public class CharacterList {
 
     private List<Character> characters = new ArrayList<>();
 
