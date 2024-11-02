@@ -1,12 +1,14 @@
 package com.example.javaBackenToReact;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.example.javaBackenToReact.models.Character;
+import com.example.javaBackenToReact.models.Randomizer;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
 public class HelloController {
+    CharacterList characterList = new CharacterList();
 
     @CrossOrigin(origins = "http://localhost:5173/")
     @GetMapping("/hello")
@@ -18,5 +20,10 @@ public class HelloController {
     public int dieRoll(@RequestParam(value = "amount", defaultValue = "1") int amount) {
         Randomizer rand  = new Randomizer();
         return rand.rollDice(amount);
+    }
+
+    @PostMapping("/newCharacter")
+    public void newCharacter(@RequestBody Character character) {
+        characterList.addCharacter(character);
     }
 }
