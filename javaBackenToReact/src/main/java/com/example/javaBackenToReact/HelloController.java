@@ -2,6 +2,7 @@ package com.example.javaBackenToReact;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -14,8 +15,8 @@ public class HelloController {
     }
 
     @GetMapping("/rolldie")
-    public int dieRoll() {
+    public int dieRoll(@RequestParam(value = "amount", defaultValue = "1") int amount) {
         Randomizer rand  = new Randomizer();
-        return rand.rollDice(3);
+        return rand.rollDice(amount);
     }
 }
