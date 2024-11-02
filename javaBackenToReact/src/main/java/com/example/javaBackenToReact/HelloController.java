@@ -2,9 +2,6 @@ package com.example.javaBackenToReact;
 import com.example.javaBackenToReact.models.Character;
 import com.example.javaBackenToReact.models.Randomizer;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
 
 @RestController
 public class HelloController {
@@ -22,8 +19,9 @@ public class HelloController {
         return rand.rollDice(amount);
     }
 
-    @PostMapping("/newCharacter")
+    @PostMapping("/newcharacter")
     public void newCharacter(@RequestBody Character character) {
         characterList.addCharacter(character);
+        System.out.println("New character added: " + character);
     }
 }
