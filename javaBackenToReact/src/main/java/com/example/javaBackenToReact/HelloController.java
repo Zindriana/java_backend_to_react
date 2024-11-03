@@ -15,7 +15,8 @@ public class HelloController {
         this.heroList = heroList;
     }
 
-    @CrossOrigin(origins = "http://localhost:5173/")
+    @CrossOrigin(origins = "https://zindriana.github.io/")
+    //@CrossOrigin(origins = "http://localhost:5173/")
     @GetMapping("/hello")
     public String sayHello() {
         return "Hello, World!";
