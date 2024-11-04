@@ -8,7 +8,7 @@ import java.util.List;
 
 @Component
 public class HeroList {
-    DataSaver dataSaver;
+    //DataSaver dataSaver;
 
     private List<Hero> heroes = new ArrayList<>();
 
@@ -18,6 +18,6 @@ public class HeroList {
 
     public void addHero(Hero hero) {
         this.heroes.add(hero);
-        dataSaver.saveHeroesToFile(heroes,"herosave");
+        //dataSaver.saveHeroesToFile(heroes,"herosave");
     }
 }

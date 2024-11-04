@@ -22,7 +22,6 @@ public class DataLoader {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                // Förutsatt att du har en metod för att skapa en Hero från en sträng
                 Hero hero = Hero.fromString(line);
                 heroList.addHero(hero);
             }

@@ -14,7 +14,6 @@ public class DataSaver {
     public void saveHeroesToFile(List<Hero> heroes, String filePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (Hero hero : heroes) {
-                // Anta att du har en metod i Character som konverterar objektet till en sträng
                 writer.write(hero.toString());
                 writer.newLine();
             }

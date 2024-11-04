@@ -7,6 +7,10 @@ public class Hero {
     private int physical;
     private int social;
     private int spirit;
+    private boolean canDwarven = false;
+    private boolean canElven = false;
+    private boolean canHuman  = false;
+    private boolean canOrc = false;
 
     public Hero(String name, int mental, int physical, int social, int spirit) {
         this.name = name;
