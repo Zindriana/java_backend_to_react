@@ -16,7 +16,7 @@ public class ScrollList {
     }
 
     public void addScroll(Scroll scroll){
-        scrolls.add(scroll);
+        this.scrolls.add(scroll);
     }
 
 
