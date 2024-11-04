@@ -1,5 +1,5 @@
 package com.example.javaBackenToReact.admin;
-import com.example.javaBackenToReact.HeroList;
+import com.example.javaBackenToReact.lists.HeroList;
 import com.example.javaBackenToReact.models.Hero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

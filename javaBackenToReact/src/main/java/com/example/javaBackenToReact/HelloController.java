@@ -1,4 +1,5 @@
 package com.example.javaBackenToReact;
+import com.example.javaBackenToReact.lists.HeroList;
 import com.example.javaBackenToReact.models.Hero;
 import com.example.javaBackenToReact.models.Randomizer;
 import org.springframework.beans.factory.annotation.Autowired;

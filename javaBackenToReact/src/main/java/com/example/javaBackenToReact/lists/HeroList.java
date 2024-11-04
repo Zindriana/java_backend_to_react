@@ -1,6 +1,5 @@
-package com.example.javaBackenToReact;
+package com.example.javaBackenToReact.lists;
 
-import com.example.javaBackenToReact.admin.DataSaver;
 import com.example.javaBackenToReact.models.Hero;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
