@@ -2,6 +2,7 @@ package com.example.javaBackenToReact;
 import com.example.javaBackenToReact.lists.HeroList;
 import com.example.javaBackenToReact.lists.ScrollList;
 import com.example.javaBackenToReact.models.Hero;
+import com.example.javaBackenToReact.models.Language;
 import com.example.javaBackenToReact.models.Randomizer;
 import com.example.javaBackenToReact.models.Scroll;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import java.util.List;
 public class HelloController {
     private final HeroList heroList;
     private final ScrollList scrollList;
+    private final Language language = new Language();
 
     @Autowired
     public HelloController(HeroList heroList, ScrollList scrollList) {
@@ -41,6 +43,7 @@ public class HelloController {
     @PostMapping("/newscroll")
     public void newScroll(@RequestBody Scroll scroll) {
         scrollList.addScroll(scroll);
+        language.encryptScroll(scroll);
     }
 
     @GetMapping("/getcharacters")
