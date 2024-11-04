@@ -78,7 +78,11 @@ public class HelloController {
     @PostMapping("/updatecharacters")
     public void updateCharacter(@RequestBody CharacterUpdateRequest request) {
         for (Hero hero : heroList.getHeroes()) {
-            hero.setActive(request.isActive());
+            if(hero.getName().equals(request.getName())) {
+                hero.setActive(true);
+            } else {
+                hero.setActive(false);
+            }
         }
     }
 }
