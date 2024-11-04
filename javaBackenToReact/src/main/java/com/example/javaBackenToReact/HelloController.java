@@ -44,7 +44,6 @@ public class HelloController {
     public void newScroll(@RequestBody Scroll scroll) {
         Scroll encryptedScroll = language.encryptScroll(scroll);
         scrollList.addScroll(encryptedScroll);
-
     }
 
     @GetMapping("/getcharacters")

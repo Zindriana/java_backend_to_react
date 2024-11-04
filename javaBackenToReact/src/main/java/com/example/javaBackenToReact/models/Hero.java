@@ -7,17 +7,23 @@ public class Hero {
     private int physical;
     private int social;
     private int spirit;
-    private boolean canDwarven = false;
-    private boolean canElven = false;
-    private boolean canHuman  = false;
-    private boolean canOrc = false;
+    private boolean canDwarven;
+    private boolean canElven;
+    private boolean canHuman;
+    private boolean canOrc;
+    private boolean active = false;
 
-    public Hero(String name, int mental, int physical, int social, int spirit) {
+    public Hero(String name, int mental, int physical, int social, int spirit,
+                 boolean canDwarven, boolean canElven, boolean canHuman, boolean canOrc) {
         this.name = name;
         this.mental = mental;
         this.physical = physical;
         this.spirit = spirit;
         this.social = social;
+        this.canDwarven = canDwarven;
+        this.canElven = canElven;
+        this.canHuman = canHuman;
+        this.canOrc = canOrc;
     }
 
     public static Hero fromString(String line) {
@@ -64,6 +70,46 @@ public class Hero {
         this.spirit = spirit;
     }
 
+    public boolean isCanDwarven() {
+        return canDwarven;
+    }
+
+    public void setCanDwarven(boolean canDwarven) {
+        this.canDwarven = canDwarven;
+    }
+
+    public boolean isCanElven() {
+        return canElven;
+    }
+
+    public void setCanElven(boolean canElven) {
+        this.canElven = canElven;
+    }
+
+    public boolean isCanHuman() {
+        return canHuman;
+    }
+
+    public void setCanHuman(boolean canHuman) {
+        this.canHuman = canHuman;
+    }
+
+    public boolean isCanOrc() {
+        return canOrc;
+    }
+
+    public void setCanOrc(boolean canOrc) {
+        this.canOrc = canOrc;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     @Override
     public String toString() {
         return "Hero{" +
@@ -72,6 +118,10 @@ public class Hero {
                 ", physical=" + physical +
                 ", social=" + social +
                 ", spirit=" + spirit +
+                ", Dwarven=" + canDwarven +
+                ", Elven=" + canElven +
+                ", Human=" + canHuman +
+                ", Orc=" + canOrc +
                 '}';
     }
 }
