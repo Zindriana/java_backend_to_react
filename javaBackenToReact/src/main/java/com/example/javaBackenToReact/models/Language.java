@@ -2,24 +2,26 @@ package com.example.javaBackenToReact.models;
 
 public class Language {
 
-    public void encryptScroll(Scroll scroll) {
+    public Scroll encryptScroll(Scroll scroll) {
         String language = scroll.getLanguage();
+        Scroll encryptedScroll = scroll;
         switch (language) {
             case "dwarven":
-                scroll.setContent(encryptDwarven(scroll.getContent()));
-                break;
+                encryptedScroll.setContent(encryptDwarven(scroll.getContent()));
+                return encryptedScroll;
             case "elven":
-                scroll.setContent(encryptElven(scroll.getContent()));
-                break;
+                encryptedScroll.setContent(encryptElven(scroll.getContent()));
+                return encryptedScroll;
             case "human":
-                scroll.setContent(encryptHuman(scroll.getContent()));
-                break;
+                encryptedScroll.setContent(encryptHuman(scroll.getContent()));
+                return encryptedScroll;
             case "orc":
-                scroll.setContent(encryptOrc(scroll.getContent()));
-                break;
+                encryptedScroll.setContent(encryptOrc(scroll.getContent()));
+                return encryptedScroll;
             default:
                 break;
         }
+        return scroll;
     }
 
     private String encryptHuman(String text){
@@ -46,9 +48,19 @@ public class Language {
         return decryptString.toString();
     }
 
-    private String encryptElven(String text){
-        StringBuilder encryptString = new StringBuilder(text);
-        encryptString.reverse();
+    private String encryptElven(String text) {
+        StringBuilder encryptString = new StringBuilder();
+        for (char c : text.toCharArray()) {
+            if (Character.isLetter(c)) {
+                char shifted = (char) (c - 1);
+                if ((Character.isLowerCase(c) && shifted < 'a') || (Character.isUpperCase(c) && shifted < 'A')) {
+                    shifted += 26;
+                }
+                encryptString.append(shifted);
+            } else {
+                encryptString.append(c);
+            }
+        }
         return encryptString.toString();
     }
 
@@ -58,9 +70,19 @@ public class Language {
         return decryptString.toString();
     }
 
-    private String encryptOrc(String text){
-        StringBuilder encryptString = new StringBuilder(text);
-        encryptString.reverse();
+    private String encryptOrc(String text) {
+        StringBuilder encryptString = new StringBuilder();
+        for (char c : text.toCharArray()) {
+            if (Character.isLetter(c)) {
+                char shifted = (char) (c + 1);
+                if ((Character.isLowerCase(c) && shifted > 'z') || (Character.isUpperCase(c) && shifted > 'Z')) {
+                    shifted -= 26;
+                }
+                encryptString.append(shifted);
+            } else {
+                encryptString.append(c);
+            }
+        }
         return encryptString.toString();
     }
 

@@ -42,8 +42,9 @@ public class HelloController {
 
     @PostMapping("/newscroll")
     public void newScroll(@RequestBody Scroll scroll) {
-        scrollList.addScroll(scroll);
-        language.encryptScroll(scroll);
+        Scroll encryptedScroll = language.encryptScroll(scroll);
+        scrollList.addScroll(encryptedScroll);
+
     }
 
     @GetMapping("/getcharacters")
