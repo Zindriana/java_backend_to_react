@@ -25,6 +25,28 @@ public class Language {
         return scroll;
     }
 
+    public Scroll decryptScroll(Scroll scroll) {
+        String language = scroll.getLanguage();
+        Scroll decryptedScroll = scroll;
+        switch (language) {
+            case "dwarven":
+                decryptedScroll.setContent(decryptDwarven(scroll.getContent()));
+                return decryptedScroll;
+            case "elven":
+                decryptedScroll.setContent(decryptElven(scroll.getContent()));
+                return decryptedScroll;
+            case "human":
+                decryptedScroll.setContent(decryptHuman(scroll.getContent()));
+                return decryptedScroll;
+            case "orc":
+                decryptedScroll.setContent(decryptOrc(scroll.getContent()));
+                return decryptedScroll;
+            default:
+                break;
+        }
+        return scroll;
+    }
+
     private String encryptHuman(String text) {
         StringBuilder stringBuilder = new StringBuilder(text);
         String reversedString = stringBuilder.reverse().toString();
@@ -40,10 +62,22 @@ public class Language {
         return encryptedString.toString();
     }
 
-    public String decryptHuman(String text){
-        StringBuilder decryptString = new StringBuilder(text);
-        decryptString.reverse();
-        return decryptString.toString();
+    private String decryptHuman(String text) {
+        // Skapa en StringBuilder för att bygga den dekrypterade strängen
+        StringBuilder decryptedString = new StringBuilder();
+
+        // Gå igenom varje tecken i den krypterade strängen
+        for (char c : text.toCharArray()) {
+            // Förutsatt att vi kan identifiera vilka nummer som representerade mellanslag (detta är hypotetiskt)
+            if (Character.isDigit(c)) {
+                decryptedString.append(' ');
+            } else {
+                decryptedString.append(c);
+            }
+        }
+
+        // Återställ strängen till dess ursprungliga version
+        return decryptedString.reverse().toString();
     }
 
     private String encryptDwarven(String text) {
@@ -54,9 +88,15 @@ public class Language {
         return encryptString.toString().trim();
     }
 
-    public String decryptDwarven(String text){
-        StringBuilder decryptString = new StringBuilder(text);
-        decryptString.reverse();
+    private String decryptDwarven(String encryptedText) {
+        StringBuilder decryptString = new StringBuilder();
+        String[] asciiValues = encryptedText.split(" ");
+
+        for (String asciiValue : asciiValues) {
+            int charCode = Integer.parseInt(asciiValue);
+            decryptString.append((char) charCode);
+        }
+
         return decryptString.toString();
     }
 
@@ -77,9 +117,7 @@ public class Language {
     }
 
     public String decryptElven(String text){
-        StringBuilder decryptString = new StringBuilder(text);
-        decryptString.reverse();
-        return decryptString.toString();
+        return encryptOrc(text);
     }
 
     private String encryptOrc(String text) {
@@ -99,8 +137,6 @@ public class Language {
     }
 
     public String decryptOrc(String text){
-        StringBuilder decryptString = new StringBuilder(text);
-        decryptString.reverse();
-        return decryptString.toString();
+        return encryptElven(text);
     }
 }

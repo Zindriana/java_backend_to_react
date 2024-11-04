@@ -85,4 +85,9 @@ public class HelloController {
             }
         }
     }
+
+    @PostMapping("/decrypt")
+    public Scroll decrypt(@RequestBody Scroll scroll) {
+        return language.decryptScroll(scroll);
+    }
 }
