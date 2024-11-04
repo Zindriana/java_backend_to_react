@@ -36,10 +36,12 @@ public class Language {
         return decryptString.toString();
     }
 
-    private String encryptDwarven(String text){
-        StringBuilder encryptString = new StringBuilder(text);
-        encryptString.reverse();
-        return encryptString.toString();
+    private String encryptDwarven(String text) {
+        StringBuilder encryptString = new StringBuilder();
+        for (char c : text.toCharArray()) {
+            encryptString.append((int) c).append(" ");
+        }
+        return encryptString.toString().trim();
     }
 
     public String decryptDwarven(String text){
