@@ -1,6 +1,7 @@
 package com.example.javaBackenToReact.models;
 
 public class Language {
+    Randomizer randomizer = new Randomizer();
 
     public Scroll encryptScroll(Scroll scroll) {
         String language = scroll.getLanguage();
@@ -24,10 +25,19 @@ public class Language {
         return scroll;
     }
 
-    private String encryptHuman(String text){
-        StringBuilder encryptString = new StringBuilder(text);
-        encryptString.reverse();
-        return encryptString.toString();
+    private String encryptHuman(String text) {
+        StringBuilder stringBuilder = new StringBuilder(text);
+        String reversedString = stringBuilder.reverse().toString();
+        String lowCaseString = reversedString.toLowerCase();
+        StringBuilder encryptedString = new StringBuilder();
+        for (char c : lowCaseString.toCharArray()) {
+            if (c == ' ') {
+                encryptedString.append(randomizer.rollDice(1));
+            } else {
+                encryptedString.append(c);
+            }
+        }
+        return encryptedString.toString();
     }
 
     public String decryptHuman(String text){
