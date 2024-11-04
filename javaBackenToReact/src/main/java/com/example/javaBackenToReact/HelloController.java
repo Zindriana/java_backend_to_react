@@ -53,4 +53,32 @@ public class HelloController {
 
     @GetMapping("/getscrolls")
     public List<Scroll> getScrolls() { return scrollList.getScrolls(); }
+
+    public static class CharacterUpdateRequest {
+        private String name;
+        private boolean active;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public boolean isActive() {
+            return active;
+        }
+
+        public void setActive(boolean active) {
+            this.active = active;
+        }
+
+    }
+    @PostMapping("/updatecharacters")
+    public void updateCharacter(@RequestBody CharacterUpdateRequest request) {
+        for (Hero hero : heroList.getHeroes()) {
+            hero.setActive(request.isActive());
+        }
+    }
 }
