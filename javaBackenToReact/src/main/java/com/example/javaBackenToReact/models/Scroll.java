@@ -3,13 +3,13 @@ package com.example.javaBackenToReact.models;
 public class Scroll {
 
     private String name;
-    private String content;
+    private String textContent;
     private String language;
 
 
     public Scroll(String name, String content, String language) {
         this.name = name;
-        this.content = content;
+        this.textContent = content;
         this.language = language;
     }
 
@@ -22,11 +22,11 @@ public class Scroll {
     }
 
     public String getContent() {
-        return content;
+        return textContent;
     }
 
     public void setContent(String content) {
-        this.content = content;
+        this.textContent = content;
     }
 
     public String getLanguage() {
